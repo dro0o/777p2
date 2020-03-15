@@ -1,14 +1,18 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { View, StyleSheet, ImageBackground } from 'react-native'
-import { Text, Input, Button } from 'react-native-elements'
+import React, { useState, useContext } from 'react'
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity
+} from 'react-native'
+import { Text } from 'react-native-elements'
 import Spacer from '../components/Spacer'
 import { Context as AuthContext } from '../context/AuthContext'
+import AuthForm from '../components/AuthForm'
 var { vw, vh, vmin, vmax } = require('react-native-viewport-units')
 
 const SignupScreen = ({ navigation }) => {
   const { state, signup } = useContext(AuthContext)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [backgroundReq, setBackgroundReq] = useState(
     Math.random() > 0.5
       ? require('../../assets/avalanchelake_1.jpg')
@@ -21,40 +25,22 @@ const SignupScreen = ({ navigation }) => {
       style={{ width: '100%', height: '100%' }}
     >
       <View style={styles.container}>
-        <Spacer>
-          <Text h4 style={{ color: '#174591', fontWeight: 'bold' }}>
-            Glacier Social Sign Up
-          </Text>
-        </Spacer>
-        <Input
-          autoCapitalize='none'
-          autoCorrect={false}
-          label='Email'
-          labelStyle={{ color: '#2D482E' }}
-          value={email}
-          onChangeText={setEmail}
+        <AuthForm
+          formText='Sign Up'
+          errorMessage={state.errorMessage}
+          onSubmit={signup}
         />
-        <Spacer />
-        <Input
-          autoCapitalize='none'
-          autoCorrect={false}
-          secureTextEntry //true
-          label='Password'
-          labelStyle={{ color: '#2D482E' }}
-          value={password}
-          onChangeText={setPassword}
-        />
-        {state.errorMessage ? (
-          <Text style={styles.errorMessage}>{state.errorMessage}</Text>
-        ) : null}
-        <Spacer>
-          <Button
-            title='Sign Up'
-            buttonStyle={{ backgroundColor: '#174591' }}
-            titleStyle={{ color: 'white' }}
-            onPress={() => signup({ email, password })}
-          />
-        </Spacer>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Signin')
+          }}
+        >
+          <Spacer>
+            <Text style={styles.link}>
+              Already have an account? Sign in instead!
+            </Text>
+          </Spacer>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   )
@@ -77,11 +63,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(252, 252, 252, 0.55)',
     borderRadius: 25
   },
-  errorMessage: {
-    fontSize: 16,
-    color: 'red',
-    marginLeft: 15,
-    marginTop: 15
+  link: {
+    color: '#2D482E',
+    fontWeight: 'bold',
+    fontSize: 18
   }
 })
 
