@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { View, StyleSheet, ImageBackground } from 'react-native'
 import { Text, Input, Button } from 'react-native-elements'
 import Spacer from '../components/Spacer'
+import { Context as AuthContext } from '../context/AuthContext'
 var { vw, vh, vmin, vmax } = require('react-native-viewport-units')
 
 const SignupScreen = ({ navigation }) => {
+  const { state, signup } = useContext(AuthContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const varyImageFunc = () => {
-    return Math.random() > 0.5
+  const [backgroundReq, setBackgroundReq] = useState(
+    Math.random() > 0.5
       ? require('../../assets/avalanchelake_1.jpg')
       : require('../../assets/glacier_1.jpg')
-  }
+  )
 
   return (
     <ImageBackground
-      source={varyImageFunc()}
+      source={backgroundReq}
       style={{ width: '100%', height: '100%' }}
     >
       <View style={styles.container}>
@@ -48,6 +49,7 @@ const SignupScreen = ({ navigation }) => {
             title='Sign Up'
             buttonStyle={{ backgroundColor: '#174591' }}
             titleStyle={{ color: 'white' }}
+            onPress={() => signup({ email, password })}
           />
         </Spacer>
       </View>
@@ -66,7 +68,7 @@ SignupScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 2,
-    borderColor: '#B0AEA9',
+    borderColor: '#2D482E',
     marginTop: 20 * vh,
     margin: 10,
     backgroundColor: 'rgba(252, 252, 252, 0.55)',
