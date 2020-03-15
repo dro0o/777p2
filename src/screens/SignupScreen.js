@@ -44,6 +44,9 @@ const SignupScreen = ({ navigation }) => {
           value={password}
           onChangeText={setPassword}
         />
+        {state.errorMessage ? (
+          <Text style={styles.errorMessage}>{state.errorMessage}</Text>
+        ) : null}
         <Spacer>
           <Button
             title='Sign Up'
@@ -73,6 +76,12 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: 'rgba(252, 252, 252, 0.55)',
     borderRadius: 25
+  },
+  errorMessage: {
+    fontSize: 16,
+    color: 'red',
+    marginLeft: 15,
+    marginTop: 15
   }
 })
 

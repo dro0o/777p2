@@ -9,6 +9,7 @@ import TrackCreateScreen from './src/screens/TrackCreateScreen'
 import TrackDetailScreen from './src/screens/TrackDetailScreen'
 import TrackListScreen from './src/screens/TrackListScreen'
 import { Provider as AuthProvider } from './src/context/AuthContext'
+import { setNavigator } from './src/navigationRef'
 
 const switchNavigator = createSwitchNavigator({
   // lowercase as convention for group, not screen (capped)
@@ -31,7 +32,11 @@ const App = createAppContainer(switchNavigator)
 export default () => {
   return (
     <AuthProvider>
-      <App />
+      <App
+        ref={navigator => {
+          setNavigator(navigator)
+        }}
+      />
     </AuthProvider>
   )
 }
