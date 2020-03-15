@@ -1,46 +1,30 @@
-import React, { useState, useContext } from 'react'
-import {
-  View,
-  StyleSheet,
-  ImageBackground,
-  TouchableOpacity
-} from 'react-native'
-import { Text } from 'react-native-elements'
-import Spacer from '../components/Spacer'
+import React, { useContext, useEffect } from 'react'
+import { View, StyleSheet, ImageBackground } from 'react-native'
+import { NavigationEvents } from 'react-navigation'
 import { Context as AuthContext } from '../context/AuthContext'
 import AuthForm from '../components/AuthForm'
+import NavLink from '../components/NavLInk'
 var { vw, vh, vmin, vmax } = require('react-native-viewport-units')
 
 const SignupScreen = ({ navigation }) => {
-  const { state, signup } = useContext(AuthContext)
-  const [backgroundReq, setBackgroundReq] = useState(
-    Math.random() > 0.5
-      ? require('../../assets/avalanchelake_1.jpg')
-      : require('../../assets/glacier_1.jpg')
-  )
+  const { state, signup, clearErrorMessage } = useContext(AuthContext)
 
   return (
     <ImageBackground
-      source={backgroundReq}
+      source={require('../../assets/avalanchelake_1.jpg')}
       style={{ width: '100%', height: '100%' }}
     >
       <View style={styles.container}>
+        <NavigationEvents onWillBlur={clearErrorMessage} />
         <AuthForm
           formText='Sign Up'
           errorMessage={state.errorMessage}
           onSubmit={signup}
         />
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Signin')
-          }}
-        >
-          <Spacer>
-            <Text style={styles.link}>
-              Already have an account? Sign in instead!
-            </Text>
-          </Spacer>
-        </TouchableOpacity>
+        <NavLink
+          routeName='Signin'
+          text='Already have an account? Sign in instead!'
+        />
       </View>
     </ImageBackground>
   )
@@ -62,11 +46,6 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: 'rgba(252, 252, 252, 0.55)',
     borderRadius: 25
-  },
-  link: {
-    color: '#2D482E',
-    fontWeight: 'bold',
-    fontSize: 18
   }
 })
 
