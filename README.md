@@ -14,8 +14,8 @@
 **Graduate Program**
 
 - [UW GIS WMP](https://geography.wisc.edu/gis/onlinemasters/)
-- [Capstone Project 1](https://geography.wisc.edu/gis/gis-professional-programs-course-curriculum/)
-- [Project Report](/media/777Project1_FinalReport_AndrewPittman.pdf)
+- [Capstone Project 2](https://geography.wisc.edu/gis/gis-professional-programs-course-curriculum/)
+- [Project Report](/media/777Project2_FinalReport_AndrewPittman.pdf)
 
 ## Scripts
 
