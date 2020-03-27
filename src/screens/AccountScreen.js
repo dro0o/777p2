@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import { SafeAreaView } from 'react-navigation'
 import Spacer from '../components/Spacer'
+import { FontAwesome } from '@expo/vector-icons'
 import { Context as AuthContext } from '../context/AuthContext'
 
 const AccountScreen = () => {
@@ -20,6 +21,11 @@ const AccountScreen = () => {
       </Spacer>
     </SafeAreaView>
   )
+}
+
+AccountScreen.navigationOptions = {
+  title: 'Account',
+  tabBarIcon: <FontAwesome name='gears' size={28} />
 }
 
 const styles = StyleSheet.create({})

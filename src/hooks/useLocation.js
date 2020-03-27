@@ -7,28 +7,41 @@ import {
 
 export default (shouldTrack, callback) => {
   const [err, setErr] = useState(null)
-  const [subscriber, setSubsriber] = useState(null)
-
-  const startWatching = async () => {
-    try {
-      await requestPermissionsAsync()
-      const sub = await watchPositionAsync(
-        {
-          accuracy: Accuracy.BestForNavigation,
-          timeInterval: 1000,
-          distanceInterval: 10
-        },
-        callback
-      )
-      setSubsriber(sub)
-    } catch (e) {
-      setErr(e)
-    }
-  }
 
   useEffect(() => {
-    shouldTrack ? startWatching() : subscriber.remove() && setSubsriber(null)
-  }, [shouldTrack])
+    let subscriber
+    const startWatching = async () => {
+      try {
+        await requestPermissionsAsync()
+        subscriber = await watchPositionAsync(
+          {
+            accuracy: Accuracy.BestForNavigation,
+            timeInterval: 1000,
+            distanceInterval: 10
+          },
+          callback
+        )
+      } catch (e) {
+        setErr(e)
+      }
+    }
+
+    if (shouldTrack) {
+      startWatching()
+    } else {
+      if (subscriber) {
+        subscriber.remove()
+      }
+      subscriber = null
+    }
+
+    return () => {
+      if (subscriber) {
+        subscriber.remove()
+      }
+    }
+  }, [shouldTrack, callback]) // only pass callback here if created by useCallback hook
+  // this prevents over rendering of startWatching
 
   return [err]
 }
