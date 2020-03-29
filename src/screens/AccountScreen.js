@@ -24,6 +24,7 @@ const AccountScreen = () => {
           style={{
             fontSize: 20,
             marginTop: 10,
+            marginLeft: 10,
             color: '#174591',
             fontWeight: 'bold'
           }}
