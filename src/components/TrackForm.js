@@ -15,46 +15,57 @@ const TrackForm = () => {
   const [saveTrack] = useSaveTrack()
 
   return (
-    <>
+    <View style={styles.form}>
       <Spacer>
         <Input
           onChangeText={changeName}
           placeholder='Enter trail name'
           value={name}
+          inputStyle={styles.input}
+          placeholderTextColor='white'
+          inputContainerStyle={{ borderBottomColor: 'white' }}
         />
+        {recording ? (
+          <Button
+            title='Stop Blazing'
+            onPress={stopRecording}
+            buttonStyle={styles.button}
+          />
+        ) : (
+          <Button
+            title='Blaze a Trail!'
+            onPress={startRecording}
+            buttonStyle={styles.button}
+          ></Button>
+        )}
+        {!recording && locations.length ? (
+          <Button
+            title='Save Blazed Trail'
+            onPress={saveTrack}
+            buttonStyle={styles.saveButton}
+          />
+        ) : null}
       </Spacer>
-      {recording ? (
-        <Button
-          title='Stop Blazing'
-          onPress={stopRecording}
-          buttonStyle={styles.button}
-        />
-      ) : (
-        <Button
-          title='Blaze a Trail!'
-          onPress={startRecording}
-          buttonStyle={styles.button}
-        ></Button>
-      )}
-      {!recording && locations.length ? (
-        <Button
-          title='Save Blazed Trail'
-          onPress={saveTrack}
-          buttonStyle={styles.saveButton}
-        />
-      ) : null}
-    </>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  form: {
+    backgroundColor: 'rgba(45,72,46, 0.75)',
+    borderRadius: 15
+  },
+  input: {
+    color: 'white'
+  },
   button: {
-    backgroundColor: '#2D482E',
-    marginHorizontal: 50
+    backgroundColor: 'rgba(23,69,145, 1)',
+    marginHorizontal: 5,
+    marginTop: 10
   },
   saveButton: {
     backgroundColor: '#174591',
-    marginHorizontal: 50,
+    marginHorizontal: 5,
     marginTop: 10
   }
 })

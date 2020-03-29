@@ -35,7 +35,13 @@ const TrackListScreen = ({ navigation }) => {
 }
 
 TrackListScreen.navigationOptions = {
-  title: 'Trails'
+  title: 'Trails',
+  headerStyle: {
+    backgroundColor: 'rgba(45,72,46,1)'
+  },
+  headerTitleStyle: {
+    color: 'white'
+  }
 }
 
 const styles = StyleSheet.create({})

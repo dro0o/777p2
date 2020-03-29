@@ -36,7 +36,13 @@ const TrackDetailScreen = ({ navigation }) => {
 }
 
 TrackDetailScreen.navigationOptions = {
-  title: 'Trail Details'
+  title: 'Trail Details',
+  headerStyle: {
+    backgroundColor: 'rgba(45,72,46,1)'
+  },
+  headerTitleStyle: {
+    color: 'white'
+  }
 }
 
 const styles = StyleSheet.create({
@@ -48,17 +54,19 @@ const styles = StyleSheet.create({
     top: 2.5 * vh,
     padding: 10,
     zIndex: 9,
-    backgroundColor: 'rgba(159, 177, 207, 0.55)',
+    backgroundColor: 'rgba(23,69,145, 0.9)',
     marginHorizontal: 5 * vw,
-    borderRadius: 20,
+    borderRadius: 15,
     alignContent: 'center'
   },
   name: {
     fontSize: 24,
-    fontWeight: '500'
+    fontWeight: '500',
+    color: 'white'
   },
   time: {
     fontSize: 16,
+    color: 'white',
     fontWeight: '400'
   }
 })
