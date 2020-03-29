@@ -17,7 +17,7 @@ import roadImg from '../img/roads.png'
 import trailImg from '../img/trail.png'
 import trackImg from '../img/track.png'
 
-const Map = ({ centerUser, followUser }) => {
+const Map = ({ centerUser, followUser, goHome }) => {
   const {
     state: { currentLocation, locations }
   } = useContext(LocationContext)
@@ -43,6 +43,26 @@ const Map = ({ centerUser, followUser }) => {
     trackLines: null,
     trackMarkers: null
   })
+
+  // go home
+  useEffect(() => {
+    if (goHome > 0) {
+      _mapView.animateCamera(
+        {
+          center: {
+            latitude: 48.786267,
+            longitude: -113.938344
+          },
+          altitude: 180000,
+          pitch: 50,
+          heading: 320,
+          zoom: 10
+        },
+        2000
+      )
+    }
+    console.log(goHome)
+  }, [goHome])
 
   // enable center user location button
   useEffect(() => {
@@ -381,7 +401,14 @@ const Map = ({ centerUser, followUser }) => {
     return <ActivityIndicator size='large' style={{ marginTop: 200 }} />
   }
 
-  console.log('Rerender, centerUser:', centerUser, 'followUser:', followUser)
+  console.log(
+    'Rerender, centerUser:',
+    centerUser,
+    'followUser:',
+    followUser,
+    'gohome:',
+    goHome
+  )
 
   // Function to handle toggling each non marker geo element's callout
   function toggle(el) {
@@ -390,6 +417,8 @@ const Map = ({ centerUser, followUser }) => {
     el.open ? el.marker.hideCallout() : el.marker.showCallout()
     el.open = !el.open
   }
+
+  // Function to send camera to home position over Glacier
 
   // Shows user's location as small purple circle
   function UserLoc() {

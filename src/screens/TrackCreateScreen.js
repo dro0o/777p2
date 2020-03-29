@@ -21,6 +21,7 @@ const TrackCreateScreen = ({ isFocused }) => {
     state: { recording },
     addLocation
   } = useContext(LocationContext)
+  const [goHome, setGoHome] = useState(0)
   const [centerUser, setCenterUser] = useState(0)
   const [followUser, setFollowUser] = useState(false)
   const callback = useCallback(
@@ -36,6 +37,19 @@ const TrackCreateScreen = ({ isFocused }) => {
     ? { backgroundColor: 'rgba(23,69,145, 1)' }
     : { backgroundColor: 'rgba(23,69,145, 0.5)' }
 
+  function GoHomeLoc() {
+    return (
+      <TouchableOpacity
+        style={[styles.goHomeButton]}
+        onPress={() => {
+          setGoHome(goHome + 1)
+        }}
+      >
+        <FontAwesome name='home' size={25} color='white' />
+      </TouchableOpacity>
+    )
+  }
+
   function CenterUserLoc() {
     return (
       <TouchableOpacity
@@ -44,7 +58,7 @@ const TrackCreateScreen = ({ isFocused }) => {
           setCenterUser(centerUser + 1)
         }}
       >
-        <FontAwesome name='location-arrow' size={35} color='white' />
+        <FontAwesome name='location-arrow' size={25} color='white' />
       </TouchableOpacity>
     )
   }
@@ -57,7 +71,7 @@ const TrackCreateScreen = ({ isFocused }) => {
           setFollowUser(!followUser)
         }}
       >
-        <MaterialIcons name='my-location' size={35} color='white' />
+        <MaterialIcons name='my-location' size={25} color='white' />
       </TouchableOpacity>
     )
   }
@@ -73,11 +87,18 @@ const TrackCreateScreen = ({ isFocused }) => {
           <Text style={styles.headerText}>Glacier National Park</Text>
         </View>
         <View style={styles.map}>
-          <Map centerUser={centerUser} followUser={followUser} />
+          <Map
+            centerUser={centerUser}
+            followUser={followUser}
+            goHome={goHome}
+          />
         </View>
         <View style={styles.form}>
           {err ? <Text>Please enable location services</Text> : null}
           <TrackForm />
+        </View>
+        <View style={styles.goHomeView}>
+          <GoHomeLoc />
         </View>
         <View style={styles.centerUserView}>
           <CenterUserLoc />
@@ -121,33 +142,46 @@ const styles = StyleSheet.create({
     top: 11 * vh,
     marginLeft: 10,
     height: 10 * vh,
-    width: 80 * vw,
+    width: 76 * vw,
+    zIndex: 9
+  },
+  goHomeView: {
+    position: 'absolute',
+    top: 12.5 * vh,
+    left: 80 * vw,
+    height: 42,
+    width: 42,
     zIndex: 9
   },
   centerUserView: {
     position: 'absolute',
-    top: 15 * vh,
-    left: 85 * vw,
-    height: 55,
-    width: 55,
+    top: 16.25 * vh,
+    left: 89 * vw,
+    height: 42,
+    width: 42,
     zIndex: 9
   },
   lockUserView: {
     position: 'absolute',
-    top: 22 * vh,
-    left: 85 * vw,
-    height: 55,
-    width: 55,
+    top: 20 * vh,
+    left: 80 * vw,
+    height: 42,
+    width: 42,
     zIndex: 9
   },
-  centerUserButton: {
-    borderRadius: 40,
+  goHomeButton: {
+    borderRadius: 35,
     backgroundColor: 'rgba(23,69,145, 1)',
-    padding: 11
+    padding: 9
+  },
+  centerUserButton: {
+    borderRadius: 35,
+    backgroundColor: 'rgba(23,69,145, 1)',
+    padding: 10
   },
   lockUserButton: {
-    borderRadius: 40,
-    padding: 10
+    borderRadius: 35,
+    padding: 8
   }
 })
 
