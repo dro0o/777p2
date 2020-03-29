@@ -52,7 +52,7 @@ export const { Provider, Context } = createDataContext(
     parking: true,
     peaks: true,
     pois: true,
-    roads: true,
+    roads: false,
     tracks: true,
     trails: true
   }
