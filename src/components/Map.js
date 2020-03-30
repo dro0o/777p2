@@ -7,7 +7,7 @@ import MapView, {
   Callout,
   Marker
 } from 'react-native-maps'
-var { vw, vh, vmin, vmax } = require('react-native-viewport-units')
+import { vh } from '../components/Viewport'
 import { Context as LocationContext } from '../context/LocationContext'
 import { Context as LayerContext } from '../context/LayerContext'
 import parkingImg from '../img/parking.png'
@@ -46,7 +46,7 @@ const Map = ({ centerUser, followUser, goHome }) => {
 
   // go home
   useEffect(() => {
-    if (_mapView && goHome > 0) {
+    if (typeof _mapView !== 'undefined' && goHome > 0) {
       _mapView.animateCamera(
         {
           center: {
@@ -66,7 +66,7 @@ const Map = ({ centerUser, followUser, goHome }) => {
 
   // enable center user location button
   useEffect(() => {
-    if (_mapView && centerUser > 0) {
+    if (typeof _mapView !== 'undefined' && centerUser > 0) {
       var userLat = currentLocation.coords.latitude
       var userLon = currentLocation.coords.longitude
       _mapView.animateCamera(
@@ -86,7 +86,7 @@ const Map = ({ centerUser, followUser, goHome }) => {
 
   // enable lock user location button
   useEffect(() => {
-    _mapView && followUser
+    typeof _mapView !== 'undefined' && followUser
       ? _mapView.animateCamera(
           {
             center: {
@@ -365,7 +365,7 @@ const Map = ({ centerUser, followUser, goHome }) => {
             lineDashPattern={[2, 3, 2]}
             tappable={true}
             onPress={() => {
-              toggle(line)
+              toggle(el)
             }}
           />
         )

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { Context as TrackContext } from '../context/TrackContext'
 import MapView, { Polyline } from 'react-native-maps'
-var { vw, vh, vmin, vmax } = require('react-native-viewport-units')
+import { vw, vh } from '../components/Viewport'
 
 const TrackDetailScreen = ({ navigation }) => {
   const { state } = useContext(TrackContext)

@@ -4,7 +4,7 @@ import { NavigationEvents } from 'react-navigation'
 import { Context as AuthContext } from '../context/AuthContext'
 import AuthForm from '../components/AuthForm'
 import NavLink from '../components/NavLInk'
-var { vw, vh, vmin, vmax } = require('react-native-viewport-units')
+import { vh } from '../components/Viewport'
 
 const SigninScreen = () => {
   const { state, signin, clearErrorMessage } = useContext(AuthContext)

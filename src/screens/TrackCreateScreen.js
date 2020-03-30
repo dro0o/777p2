@@ -1,12 +1,13 @@
 // import '../_mockLocation'
-import React, { useState, useEffect, useContext, useCallback } from 'react'
+import React, { useState, useContext, useCallback } from 'react'
 import {
   StyleSheet,
   View,
   Keyboard,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Dimensions
 } from 'react-native'
-import { Text, Button } from 'react-native-elements'
+import { Text } from 'react-native-elements'
 import { withNavigationFocus } from 'react-navigation'
 import Map from '../components/Map'
 import { Context as LocationContext } from '../context/LocationContext'
@@ -14,7 +15,7 @@ import useLocation from '../hooks/useLocation'
 import TrackForm from '../components/TrackForm'
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-var { vw, vh, vmin, vmax } = require('react-native-viewport-units')
+import { vw, vh } from '../components/Viewport'
 
 const TrackCreateScreen = ({ isFocused }) => {
   const {
