@@ -401,15 +401,6 @@ const Map = ({ centerUser, followUser, goHome }) => {
     return <ActivityIndicator size='large' style={{ marginTop: 200 }} />
   }
 
-  console.log(
-    'Rerender, centerUser:',
-    centerUser,
-    'followUser:',
-    followUser,
-    'gohome:',
-    goHome
-  )
-
   // Function to handle toggling each non marker geo element's callout
   function toggle(el) {
     // el.marker.showCallout()
