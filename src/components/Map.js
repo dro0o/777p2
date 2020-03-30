@@ -46,7 +46,7 @@ const Map = ({ centerUser, followUser, goHome }) => {
 
   // go home
   useEffect(() => {
-    if (goHome > 0) {
+    if (_mapView && goHome > 0) {
       _mapView.animateCamera(
         {
           center: {
@@ -66,7 +66,7 @@ const Map = ({ centerUser, followUser, goHome }) => {
 
   // enable center user location button
   useEffect(() => {
-    if (centerUser > 0) {
+    if (_mapView && centerUser > 0) {
       var userLat = currentLocation.coords.latitude
       var userLon = currentLocation.coords.longitude
       _mapView.animateCamera(
@@ -86,7 +86,7 @@ const Map = ({ centerUser, followUser, goHome }) => {
 
   // enable lock user location button
   useEffect(() => {
-    followUser
+    _mapView && followUser
       ? _mapView.animateCamera(
           {
             center: {
