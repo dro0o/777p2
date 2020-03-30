@@ -23,6 +23,8 @@ const tryLocalSignin = dispatch => async () => {
   if (token) {
     dispatch({ type: 'signin', payload: token })
     navigate('TrackList')
+  } else {
+    navigate('loginFlow')
   }
 }
 
