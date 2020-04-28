@@ -29,12 +29,13 @@
 | :------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
 |                                                  ![alt](/media/glacier_details_home_1.gif)                                                   |                     ![alt](/media/glacier_home_user_nav.gif)                      |
 
-| **Toggle layers for increased visibility or to find new areas:** | **Review trails you've recorded with a trail list screen and trail detail screen:** |
-| :--------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
-|             ![alt](/media/glacier_layer_toggle.gif)              |                       ![alt](/media/glacier_trail_review.gif)                       |
+| **Toggle layers for increased visibility or to find new areas:** <img width=600/> | **Review trails you've recorded with a trail list screen and trail detail screen:** <img width=400/> |
+| :-------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
+|                      ![alt](/media/glacier_layer_toggle.gif)                      |                               ![alt](/media/glacier_trail_review.gif)                                |
 
-**User's trails are automatically displayed on public map:** <br />
-![alt](/media/glacier_trails_on_map.gif)
+| **User's trails are automatically displayed on public map:** |
+| :----------------------------------------------------------: |
+|           ![alt](/media/glacier_trails_on_map.gif)           |
 
 ## Setup & Scripts
 
