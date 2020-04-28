@@ -25,23 +25,13 @@
 | :--------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
 |                   ![alt](/media/glacier_signup_signin.gif)                   |                   ![alt](/media/glacier_details_home_2.gif)                   |
 
-**Functional user sign up and sign in with logout, secure password storage:** <br />
-![alt](/media/glacier_signup_signin.gif)
+| **Layer details include nearby peaks, POIs, parking areas, roads, park boundaries, park trails, and user generated trails** | **Quickly navigate from map details to an overview of the park** |
+| :-------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------: |
+|                                          ![alt](/media/glacier_details_home_1.gif)                                          |             ![alt](/media/glacier_home_user_nav.gif)             |
 
-**Review Glacier National Park layer details from the National Park Service:** <br />
-![alt](/media/glacier_details_home_2.gif)
-
-**Layer details include nearby peaks, POIs, parking areas, roads, <br />park boundaries, park trails, and user generated trails:** <br />
-![alt](/media/glacier_details_home_1.gif)
-
-**Quickly navigate from map details to an overview of the park:** <br />
-![alt](/media/glacier_home_user_nav.gif)
-
-**Toggle layers for increased visibility or to find new areas:** <br />
-![alt](/media/glacier_layer_toggle.gif)
-
-**Review trails you've recorded with a trail list screen and trail detail screen:** <br />
-![alt](/media/glacier_trail_review.gif)
+| **Toggle layers for increased visibility or to find new areas:** | **Review trails you've recorded with a trail list screen and trail detail screen:** |
+| :--------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
+|             ![alt](/media/glacier_layer_toggle.gif)              |                       ![alt](/media/glacier_trail_review.gif)                       |
 
 **User's trails are automatically displayed on public map:** <br />
 ![alt](/media/glacier_trails_on_map.gif)
