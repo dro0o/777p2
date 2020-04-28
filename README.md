@@ -29,7 +29,7 @@
 | :------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
 |                                                  ![alt](/media/glacier_details_home_1.gif)                                                   |                     ![alt](/media/glacier_home_user_nav.gif)                      |
 
-| **Toggle layers for increased visibility or to find new areas:** <img width=600/> | **Review trails you've recorded with a trail list screen and trail detail screen:** <img width=400/> |
+| **Toggle layers for increased visibility or to find new areas:** <img width=550/> | **Review trails you've recorded with a trail list screen and trail detail screen:** <img width=450/> |
 | :-------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
 |                      ![alt](/media/glacier_layer_toggle.gif)                      |                               ![alt](/media/glacier_trail_review.gif)                                |
 
