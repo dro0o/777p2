@@ -21,6 +21,10 @@
 
 ## Previews
 
+| :**Functional user sign up and sign in<br />with logout, secure password storage:**: | :**Review Glacier National Park layer<br />details from the National Park Service:**: |
+| :----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+|                       ![alt](/media/glacier_signup_signin.gif)                       |                       ![alt](/media/glacier_details_home_2.gif)                       |
+
 **Functional user sign up and sign in with logout, secure password storage:** <br />
 ![alt](/media/glacier_signup_signin.gif)
 
